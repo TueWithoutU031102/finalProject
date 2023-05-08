@@ -20,7 +20,14 @@
         </div>
         <div class="input-box">
             <label for="numberofPeople" class="form-label">Number of people:</label>
-            <input type="text" class="form-control" id="numberofPeople" name="numberofPeople">
+            <select class="form-select" id="numberofPeople" name="numberofPeople">
+                <option>1</option>
+                <option>2</option>
+                <option>3-5</option>
+                <option>6-10</option>
+                <option>11-15</option>
+                <option>More</option>
+            </select>
         </div>
         <div class="input-box">
             <label for="arrivalTime" class="form-label">Arrival time:</label>
