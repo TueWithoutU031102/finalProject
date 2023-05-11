@@ -4,13 +4,13 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'customer'], function () {
-    /////// CUSTOMER//
+    /////// CUSTOMER ///////
 
-    // Route::get('acc', [Controller::class, 'acc'])->name('admin.acc');
+    Route::get('index', [CustomerController::class, 'index'])->name('books.index');
 
     Route::get('bookForm', [CustomerController::class, 'bookForm']);
 
-    Route::post('book', [CustomerController::class, 'book']);
+    Route::post('bookForm', [CustomerController::class, 'store'])->name('books.store');
 
     // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);
 
