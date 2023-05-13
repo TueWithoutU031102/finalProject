@@ -22,15 +22,12 @@ class bookStore extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
-            'phone_number' => ['required'],
-            'number_of_people' => ['required', 'integer'],
-            'arrival_time' => ['required', 'date'],
-            'last_note' => ['nullable'],
+            //
+            'bookName' => ['required'],
+            'phonenumber' => ['required'],
+            'numberofPeople' => ['required'],
+            'arrivalTime' => ['required'],
+            'note' => ['nullable'],
         ];
     }
-    // public function messages()
-    // {
-    //     return [];
-    // }
 }

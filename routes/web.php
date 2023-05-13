@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group([], function () {
-    // ... other routes ...
-    require __DIR__ . '/web/customer.php'; // include the new customer routes
+
+Route::group(['prefix' => 'customer'], function () {
+    /////// CUSTOMER ///////
+
+    Route::get('index', [CustomerController::class, 'index'])->name('books.index');
+
+    Route::get('bookForm', [CustomerController::class, 'bookForm']);
+
+    Route::post('store', [CustomerController::class, 'store']);
+
+    // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);
+
+    // Route::get("editAcc/{id}", [Controller::class, 'showFormEditAccount']);
+
+    // Route::post("editAcc/{id}", [Controller::class, 'updateAcc']);
+
+    // Route::post("deleteAcc/{user}", [Controller::class, 'delete']);
+});
+
+Route::group(['prefix' => 'manager'], function () {
+    Route::get('index', [ManagerController::class, 'index']);
+});
+
+Route::group(['prefix' => 'staff'], function () {
 });
