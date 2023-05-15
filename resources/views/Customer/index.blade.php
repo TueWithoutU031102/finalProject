@@ -17,6 +17,21 @@
         <div class="alert alert-success" role="alert"><strong>{{ Session::get('success') }}</strong></div>
     @endif
     customer page
+    <div class="button-action">
+        <a href="/customer/bookForm" class="btn btn-primary">Booking</a>
+    </div>
+    <div class="button-action">
+        <a href="" class="btn btn-primary">Payment</a>
+    </div>
+    <div class="button-action">
+        <a href="" class="btn btn-primary">Review</a>
+    </div>
+    <div class="button-action">
+        <a href="" class="btn btn-primary">Call staffs</a>
+    </div>
+    <div class="button-action">
+        <a href="" class="btn btn-primary">Order</a>
+    </div>
 </body>
 
 </html>

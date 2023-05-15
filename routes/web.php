@@ -39,6 +39,7 @@ Route::group(['prefix' => 'customer'], function () {
 
 Route::group(['prefix' => 'manager'], function () {
     Route::get('index', [ManagerController::class, 'index']);
+    Route::get('menu', [ManagerController::class, 'menu']);
 });
 
 Route::group(['prefix' => 'staff'], function () {
