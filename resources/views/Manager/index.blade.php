@@ -27,7 +27,7 @@
             <a href="" class="btn btn-primary">Booking</a>
         </div>
         <div class="button-action">
-            <a href="" class="btn btn-primary">Menu</a>
+            <a href="/manager/menu" class="btn btn-primary">Menu</a>
         </div>
     </div>
 </body>

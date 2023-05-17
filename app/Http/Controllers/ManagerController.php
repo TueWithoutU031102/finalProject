@@ -11,10 +11,10 @@ class ManagerController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view("/manager/index", ['books' => $books]);
+        return view("/Manager/index", ['books' => $books]);
     }
     public function menu()
     {
-        return view("/manager/menu");
+        return view("/Manager/menu/indexMenu");
     }
 }

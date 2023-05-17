@@ -16,7 +16,7 @@ class CustomerController extends Controller
 
     public function bookForm()
     {
-        return view("/customer/bookForm");
+        return view("/customer/booking/bookForm");
     }
 
     public function store(bookStore $request)
