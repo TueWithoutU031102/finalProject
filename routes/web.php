@@ -38,8 +38,10 @@ Route::group(['prefix' => 'customer'], function () {
 });
 
 Route::group(['prefix' => 'manager'], function () {
-    Route::get('index', [ManagerController::class, 'index']);
-    Route::get('indexMenu', [ManagerController::class, 'menu']);
+    Route::get('index', [ManagerController::class, 'index'])->name('index');
+    Route::get('indexMenu', [ManagerController::class, 'menu'])->name('indexMenu');
+    Route::get('formMenu', [ManagerController::class, 'createFormMenu']);
+    Route::post('createMenu', [ManagerController::class, 'createMenu']);
 });
 
 Route::group(['prefix' => 'staff'], function () {
