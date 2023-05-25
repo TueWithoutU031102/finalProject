@@ -27,6 +27,7 @@ class formMenu extends FormRequest
             'type' => ['required'],
             'price' => ['required'],
             'description' => ['required'],
+            'image' => ['required'],
         ];
     }
 }
