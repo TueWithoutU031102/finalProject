@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\formMenu;
 use App\Models\Book;
 use App\Models\Menu;
-use Illuminate\Http\Request;
 
 class ManagerController extends Controller
 {
@@ -16,14 +16,15 @@ class ManagerController extends Controller
     }
     public function menu()
     {
-        return view("/Manager/menu/indexMenu");
+        $menus = Menu::all();
+        return view("/Manager/menu/indexMenu",['menus' => $menus]);
     }
 
     public function createFormMenu()
     {
         return view("/Manager/menu/menuForm");
     }
-    public function createMenu(Request $request)
+    public function createMenu(formMenu $request)
     {
         $menu = new Menu($request->all());
         $menu->save();

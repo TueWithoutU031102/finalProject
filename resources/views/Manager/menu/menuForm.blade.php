@@ -35,8 +35,12 @@
             <input type="text" class="form-control" value="{{ old('type') }}" id="type" name="type">
         </div>
         <div class="input-box">
-            <label for="price" class="form-label">Price:</label>
+            <label for="price" class="form-label">Price</label>
             <input type="text" class="form-control" value="{{ old('price') }}" id="price" name="price">
+        </div>
+        <div class="input-box">
+            <label for="image" class="font-weight-bold">Image</label>
+            <input type="file" name="image" class="form-control" id="image">
         </div>
         <div class="input-box">
             <label for="description" class="form-label">Description:</label>
