@@ -31,8 +31,14 @@
             <input type="text" class="form-control" value="{{ old('name') }}" id="name" name="name">
         </div>
         <div class="input-box">
-            <label for="Type" class="form-label">Type</label>
-            <input type="text" class="form-control" value="{{ old('type') }}" id="type" name="type">
+            <label for="type" class="form-label">Type</label>
+
+            <select name="type_id" value="{{ old('type_id') }}" class="form-select" id="type">
+                @foreach ($listTypes as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+
         </div>
         <div class="input-box">
             <label for="price" class="form-label">Price</label>

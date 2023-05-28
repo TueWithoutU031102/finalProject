@@ -24,7 +24,7 @@ class formMenu extends FormRequest
         return [
             //
             'name' => ['required'],
-            'type' => ['required'],
+            'type_id' => ['required'],
             'price' => ['required'],
             'description' => ['required'],
             'image' => ['required'],

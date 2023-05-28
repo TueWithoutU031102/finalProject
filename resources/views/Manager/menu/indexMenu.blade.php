@@ -42,7 +42,7 @@
                         </ul>
                     </td>
                     <td>{{ $menu->name }}</td>
-                    <td>{{ $menu->type }}</td>
+                    <td>{{ $menu->type->name }}</td>
                     <td>{{ $menu->price }}</td>
                     <td>{{ $menu->description }}</td>
 

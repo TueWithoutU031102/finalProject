@@ -31,7 +31,6 @@
             @foreach ($types as $type)
                 <tr>
                     <td>{{ $type->name }}</td>
-
                     <td>
                         <a href="/admin/showAcc/{{ $type->id }}" title="View Profile" class="btn btn-info btn-sm"><i
                                 aria-hidden="true"><i class="fa-solid fa-eye"></i>

@@ -24,13 +24,14 @@ class ManagerController extends Controller
     }
     public function createFormMenu()
     {
-        return view("/Manager/menu/menuForm");
+        $listTypes = Type::all();
+        return view("/Manager/menu/menuForm",['listTypes' => $listTypes]);
     }
     public function createMenu(formMenu $request)
     {
         $menu = new Menu($request->all());
         $menu->save();
-        return redirect()->route('indexMenu')->with('success', 'Booking created successfully!');
+        return redirect()->route('indexMenu')->with('success', 'Dish created successfully!');
     }
 
     public function type()
