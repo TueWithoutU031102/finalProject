@@ -43,6 +43,7 @@ Route::group(['prefix' => 'manager'], function () {
     Route::get('indexMenu', [ManagerController::class, 'menu'])->name('indexMenu');
     Route::get('formMenu', [ManagerController::class, 'createFormMenu']);
     Route::post('createMenu', [ManagerController::class, 'createMenu']);
+    Route::get('detailMenu/{id}',[ManagerController::class, 'detailMenu']);
 
     Route::get('indexType', [ManagerController::class, 'type'])->name('indexType');
     Route::get('formType', [ManagerController::class, 'createFormType']);

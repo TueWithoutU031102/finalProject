@@ -20,12 +20,12 @@ class ManagerController extends Controller
     public function menu()
     {
         $menus = Menu::all();
-        return view("/Manager/menu/indexMenu",['menus' => $menus]);
+        return view("/Manager/menu/indexMenu", ['menus' => $menus]);
     }
     public function createFormMenu()
     {
         $listTypes = Type::all();
-        return view("/Manager/menu/menuForm",['listTypes' => $listTypes]);
+        return view("/Manager/menu/menuForm", ['listTypes' => $listTypes]);
     }
     public function createMenu(formMenu $request)
     {
@@ -34,10 +34,17 @@ class ManagerController extends Controller
         return redirect()->route('indexMenu')->with('success', 'Dish created successfully!');
     }
 
+    public function detailMenu($id)
+    {
+        $dish = Menu::find($id);
+        $typeName = Type::find(Menu::find($id)->type_id);
+        return view("/Manager/menu/detailMenu", ['dish' => $dish, 'typeName' => $typeName]);
+    }
+
     public function type()
     {
         $types = Type::all();
-        return view("/Manager/type/indexType",['types' => $types]);
+        return view("/Manager/type/indexType", ['types' => $types]);
     }
     public function createFormType()
     {

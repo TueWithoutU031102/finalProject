@@ -45,25 +45,14 @@
                     <td>{{ $menu->type->name }}</td>
                     <td>{{ $menu->price }}</td>
                     <td>{{ $menu->description }}</td>
-
                     <td>
-                        <a href="/admin/showAcc/{{ $menu->id }}" title="View Profile" class="btn btn-info btn-sm"><i
-                                aria-hidden="true"><i class="fa-solid fa-eye"></i>
+                        <a href="/manager/detailMenu/{{ $menu->id }}" title="View Profile"
+                            class="btn btn-info btn-sm"><i aria-hidden="true"><i class="fa-solid fa-eye"></i>
                         </a>
-                        <a href="/admin/editAcc/{{ $menu->id }}" title="Edit Account"
-                            class="btn btn-primary btn-sm"><i aria-hidden="true"><i class="fa-solid fa-pen"></i>
-                        </a>
-                        <form action="/admin/deleteAcc/{{ $menu->id }}" method="POST" class="d-inline"
-                            onsubmit="return confirm('Are you sure to delete {{ $menu->name }} !!!???')">
-                            @csrf
-                            <button class="btn btn-danger btn-sm"><i aria-hidden="true"><i
-                                        class="fa-solid fa-trash"></i></button>
-                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </body>
-
 </html>
