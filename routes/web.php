@@ -48,6 +48,8 @@ Route::group(['prefix' => 'manager'], function () {
     Route::get('indexType', [ManagerController::class, 'type'])->name('indexType');
     Route::get('formType', [ManagerController::class, 'createFormType']);
     Route::post('createType', [ManagerController::class, 'createType']);
+    Route::get('editType/{id}', [ManagerController::class, 'editFormType']);
+    Route::post('editType/{id}',[ManagerController::class, 'editType']);
 });
 
 Route::group(['prefix' => 'staff'], function () {

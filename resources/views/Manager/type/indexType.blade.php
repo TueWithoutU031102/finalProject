@@ -35,7 +35,7 @@
                         <a href="/admin/showAcc/{{ $type->id }}" title="View Profile" class="btn btn-info btn-sm"><i
                                 aria-hidden="true"><i class="fa-solid fa-eye"></i>
                         </a>
-                        <a href="/admin/editAcc/{{ $type->id }}" title="Edit Account"
+                        <a href="/manager/editType/{{ $type->id }}" title="Edit Type"
                             class="btn btn-primary btn-sm"><i aria-hidden="true"><i class="fa-solid fa-pen"></i>
                         </a>
                         <form action="/admin/deleteAcc/{{ $type->id }}" method="POST" class="d-inline"

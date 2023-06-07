@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\editType;
 use App\Http\Requests\formMenu;
 use App\Http\Requests\formType;
 use App\Models\Book;
@@ -55,5 +56,18 @@ class ManagerController extends Controller
         $type = new Type($request->all());
         $type->save();
         return redirect()->route('indexType')->with('success', 'Type created successfully!');
+    }
+    public function editFormType($id)
+    {
+        $type = Type::find($id);
+        return view("Manager/type/editType", ["type" => $type]);
+    }
+    public function editType(editType $request)
+    {
+        $input = $request->all();
+
+        dd($input);
+        Type::find($request->id)->update($input);
+        return redirect()->route('indexType')->with('success', 'Type edited successfully!');
     }
 }
