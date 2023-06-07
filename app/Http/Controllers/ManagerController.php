@@ -65,8 +65,6 @@ class ManagerController extends Controller
     public function editType(editType $request)
     {
         $input = $request->all();
-
-        dd($input);
         Type::find($request->id)->update($input);
         return redirect()->route('indexType')->with('success', 'Type edited successfully!');
     }
