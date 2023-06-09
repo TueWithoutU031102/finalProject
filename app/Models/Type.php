@@ -9,7 +9,7 @@ class Type extends Model
 {
     use HasFactory;
     protected $table = 'types';
-    protected $fillable = ['name'];
+    protected $fillable = ['id', 'name'];
 
     public function menus()
     {

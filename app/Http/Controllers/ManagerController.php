@@ -68,4 +68,9 @@ class ManagerController extends Controller
         Type::find($request->id)->update($input);
         return redirect()->route('indexType')->with('success', 'Type edited successfully!');
     }
+    public function deleteType(Type $type)
+    {
+        $type->delete();
+        return redirect('/manager/type/indexType')->with('success', 'Type deleted successfully');
+    }
 }
