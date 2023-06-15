@@ -16,7 +16,7 @@
         <div class="alert alert-success" role="alert"><strong>{{ Session::get('success') }}</strong></div>
     @endif
     <div class="create-btn">
-        <a type="button" href="/manager/formType" class="btn btn-primary"
+        <a type="button" href="/manager/type/formType" class="btn btn-primary"
             style="font-weight: bold; font-size: 20px;">+</a>
     </div>
     <br><br>

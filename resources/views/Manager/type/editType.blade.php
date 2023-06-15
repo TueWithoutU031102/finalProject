@@ -36,7 +36,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         <div class="button-action">
-            <a href="/manager/indexType" class="btn btn-primary">Back</a>
+            <a href="/manager/type/indexType" class="btn btn-primary">Back</a>
         </div>
     </form>
 </body>
