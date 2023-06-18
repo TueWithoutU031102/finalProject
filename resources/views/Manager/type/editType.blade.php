@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <form action="/manager/editType/{id}" method="POST">
+    <form action="/manager/type/editType/{id}" method="POST">
         @csrf
         <br>
         @if ($errors->any())

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\UploadedFile;
 use App\Http\Requests\editType;
 use App\Http\Requests\formMenu;
 use App\Http\Requests\formType;
@@ -31,6 +32,7 @@ class ManagerController extends Controller
     public function createMenu(formMenu $request)
     {
         $menu = new Menu($request->all());
+        $menu->image = $this->saveImage($request->file('image'));
         $menu->save();
         return redirect()->route('indexMenu')->with('success', 'Dish created successfully!');
     }
@@ -72,5 +74,15 @@ class ManagerController extends Controller
     {
         $type->delete();
         return redirect('/manager/type/indexType')->with('success', 'Type deleted successfully');
+    }
+    protected function saveImage(UploadedFile $file)
+    {
+        //uniqid sinh ra mã ngẫu nhiên, tham số đầu tự động nối thêm vào đằng trước mã
+        $name = uniqid("menu_") . "." . $file->getClientOriginalExtension();
+        //move_uploaded_file() là để lưu file ng dùng đã upload lên server
+        // getPathname() là lấy đường dẫn tạm thời (đường dẫn tới file mà ng dùng upload lên server)
+        // public_path() là tạo đường dẫn tuyệt đối từ file tới chỗ mình cần lưu file
+        move_uploaded_file($file->getPathname(), public_path('images/' . $name));
+        return "images/" . $name;
     }
 }

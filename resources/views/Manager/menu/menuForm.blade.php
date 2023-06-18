@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <form action="createMenu" method="POST">
+    <form action="createMenu" method="POST" enctype="multipart/form-data">
         @csrf
         <br>
         @if ($errors->any())
@@ -57,7 +57,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         <div class="button-action">
-            <a href="/manager/indexMenu" class="btn btn-primary">Back</a>
+            <a href="/manager/menu/indexMenu" class="btn btn-primary">Back</a>
         </div>
     </form>
 </body>

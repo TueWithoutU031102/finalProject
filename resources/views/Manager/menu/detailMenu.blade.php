@@ -21,7 +21,7 @@
             <p><span>Type: </span>{{ $dish->type->name }}</p>
             <p><span>Price: </span>{{ $dish->price }}</p>
             <p><span>Description: </span>{{ $dish->description }}</p>
-            <a href="/manager/indexMenu">
+            <a href="/manager/menu/indexMenu">
                 <button class="btn btn-primary">Back</button>
             </a>
             <a href="{{ $dish->id }}" title="Edit Account" class="btn btn-primary btn-sm"><i aria-hidden="true"><i
