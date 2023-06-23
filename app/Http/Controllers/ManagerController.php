@@ -43,7 +43,11 @@ class ManagerController extends Controller
         $typeName = Type::find(Menu::find($id)->type_id);
         return view("/Manager/menu/detailMenu", ['dish' => $dish, 'typeName' => $typeName]);
     }
-
+    public function editFormMenu($id)
+    {
+        $menu = Menu::find($id);
+        return view("Manager/menu/editMenu", ["menu" => $menu]);
+    }
     public function type()
     {
         $types = Type::all();
@@ -75,6 +79,7 @@ class ManagerController extends Controller
         $type->delete();
         return redirect('/manager/type/indexType')->with('success', 'Type deleted successfully');
     }
+
     protected function saveImage(UploadedFile $file)
     {
         //uniqid sinh ra mã ngẫu nhiên, tham số đầu tự động nối thêm vào đằng trước mã
