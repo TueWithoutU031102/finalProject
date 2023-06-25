@@ -46,7 +46,8 @@ class ManagerController extends Controller
     public function editFormMenu($id)
     {
         $menu = Menu::find($id);
-        return view("Manager/menu/editMenu", ["menu" => $menu]);
+        $listTypes = Type::all();
+        return view("Manager/menu/editMenu", ["menu" => $menu, "listTypes" => $listTypes]);
     }
     public function type()
     {

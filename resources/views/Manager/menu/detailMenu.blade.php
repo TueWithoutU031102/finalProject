@@ -24,7 +24,7 @@
             <a href="/manager/menu/indexMenu">
                 <button class="btn btn-primary">Back</button>
             </a>
-            <a href="{{ $dish->id }}" title="Edit Account" class="btn btn-primary btn-sm"><i aria-hidden="true"><i
+            <a href="/manager/menu/editMenu/{{ $dish->id }}" title="Edit Account" class="btn btn-primary btn-sm"><i aria-hidden="true"><i
                         class="fa-solid fa-pen"></i>
             </a>
             <form action="{{ $dish->id }}" method="POST" class="d-inline"

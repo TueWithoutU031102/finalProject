@@ -44,6 +44,8 @@ Route::group(['prefix' => 'manager'], function () {
         Route::get('formMenu', [ManagerController::class, 'createFormMenu']);
         Route::post('createMenu', [ManagerController::class, 'createMenu']);
         Route::get('detailMenu/{id}', [ManagerController::class, 'detailMenu']);
+        Route::get('editMenu/{id}', [ManagerController::class, 'editFormMenu']);
+        Route::post('editMenu/{id}', [ManagerController::class, 'editMenu']);
     });
     Route::group(['prefix' => 'type'], function () {
         Route::get('indexType', [ManagerController::class, 'type'])->name('indexType');
