@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\editMenu;
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\editType;
 use App\Http\Requests\formMenu;
@@ -48,6 +49,18 @@ class ManagerController extends Controller
         $menu = Menu::find($id);
         $listTypes = Type::all();
         return view("Manager/menu/editMenu", ["menu" => $menu, "listTypes" => $listTypes]);
+    }
+    public function editMenu(editMenu $request)
+    {
+        $input = $request->all();
+        if ($request->hasFile('image')) {
+            Menu::find($request->id)->removeImage();
+            $input['image'] = $this->saveImage($request->file('image'));
+        } else
+            $input['image'] = Menu::find($input['id'])->image;
+
+        Menu::find($request->id)->update($input);
+        return redirect()->route('indexMenu')->with('success', 'Dish edited successfully!');
     }
     public function type()
     {
