@@ -27,7 +27,7 @@
             <a href="/manager/menu/editMenu/{{ $dish->id }}" title="Edit Account" class="btn btn-primary btn-sm"><i aria-hidden="true"><i
                         class="fa-solid fa-pen"></i>
             </a>
-            <form action="/manager/menu/delete/{{ $dish->id }}" method="POST" class="d-inline"
+            <form action="/manager/menu/deleteMenu/{{ $dish->id }}" method="POST" class="d-inline"
                 onsubmit="return confirm('Are you sure to delete {{ $dish->name }} !!!???')">
                 @csrf
                 <button class="btn btn-danger btn-sm"><i aria-hidden="true"><i class="fa-solid fa-trash"></i></button>

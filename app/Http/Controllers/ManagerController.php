@@ -62,6 +62,12 @@ class ManagerController extends Controller
         Menu::find($request->id)->update($input);
         return redirect()->route('indexMenu')->with('success', 'Dish edited successfully!');
     }
+    public function deleteMenu(Menu $menu)
+    {
+        $menu->removeImage();
+        $menu->delete();
+        return redirect()->route('indexMenu')->with('success', 'Dish deleted successfully!');
+    }
     public function type()
     {
         $types = Type::all();
