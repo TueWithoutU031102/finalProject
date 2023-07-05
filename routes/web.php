@@ -56,6 +56,9 @@ Route::group(['prefix' => 'manager'], function () {
         Route::post('editType/{id}', [ManagerController::class, 'editType']);
         Route::post('deleteType/{type}', [ManagerController::class, 'deleteType']);
     });
+    Route::group(['prefix' => 'booking'], function () {
+        Route::get('indexBooking', [ManagerController::class, 'booking'])->name('indexBooking');
+    });
 });
 
 Route::group(['prefix' => 'staff'], function () {

@@ -99,7 +99,11 @@ class ManagerController extends Controller
         $type->delete();
         return redirect('/manager/type/indexType')->with('success', 'Type deleted successfully');
     }
-
+    public function booking()
+    {
+        $booking = Book::all();
+        return view("/Manager/booking/indexBook", ['booking' => $booking]);
+    }
     protected function saveImage(UploadedFile $file)
     {
         //uniqid sinh ra mã ngẫu nhiên, tham số đầu tự động nối thêm vào đằng trước mã

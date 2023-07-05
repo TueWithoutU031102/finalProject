@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('numberofPeople');
             $table->dateTime('arrivalTime');
             $table->longText('note')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
