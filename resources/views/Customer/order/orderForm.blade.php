@@ -15,26 +15,34 @@
     <br><br>
     <table class="table table-hover">
         <tbody>
-            @foreach ($menus as $menu)
-                <tr onclick="redirectTo('{{ url('') }}')">
-                    <td style="width:20%">
-                        <ul class="img">
-                            <li>
-                                <img style="width: 600px;height: 400px" src="{{ asset($menu->image) }}">
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <h3>{{ $menu->name }}</h3>
-                        <p>{{ $menu->price }}</p>
-                        <p>{{ $menu->description }}</p>
-                    </td>
-                    <td>
-                        <a href="{{ $menu->id }}" title="View Profile" class="btn btn-info btn-sm"><i
-                                aria-hidden="true"><i class="fa-solid fa-eye"></i></i>
-                        </a>
-                    </td>
+            @php
+                $currentType = null;
+            @endphp
+            @foreach ($types as $type)
+                <tr>
+                    <td>{{ $type->name }}</td>
                 </tr>
+                @foreach ($type->menus as $menu)
+                    <tr onclick="redirectTo('{{ url('') }}')">
+                        <td style="width:20%">
+                            <ul class="img">
+                                <li>
+                                    <img style="width: 600px;height: 400px" src="{{ asset($menu->image) }}">
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <h3>{{ $menu->name }}</h3>
+                            <p>{{ $menu->price }}</p>
+                            <p>{{ $menu->description }}</p>
+                        </td>
+                        <td>
+                            <a href="{{ $menu->id }}" title="View Profile" class="btn btn-info btn-sm"><i
+                                    aria-hidden="true"><i class="fa-solid fa-eye"></i></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
             @endforeach
         </tbody>
     </table>

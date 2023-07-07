@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\bookStore;
 use App\Models\Book;
+use Illuminate\Support\Facades\DB;
 use App\Models\Menu;
-use Illuminate\Http\Request;
+use App\Models\Type;
 
 class CustomerController extends Controller
 {
@@ -29,7 +30,7 @@ class CustomerController extends Controller
 
     public function orderForm()
     {
-        $menus = Menu::all();
-        return view("/Customer/order/orderForm", ['menus' => $menus]);
+        $types = Type::all();
+        return view("/Customer/order/orderForm", ['types' => $types]);
     }
 }
