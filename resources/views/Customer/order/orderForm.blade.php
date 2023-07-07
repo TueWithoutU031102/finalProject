@@ -14,36 +14,36 @@
     <h1>Menu</h1>
     <br><br>
     <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Description</th>
-                <th scope="col">&nbsp;</th>
-            </tr>
-        </thead>
         <tbody>
             @foreach ($menus as $menu)
-                <tr>
-                    <td>
+                <tr onclick="redirectTo('{{ url('') }}')">
+                    <td style="width:20%">
                         <ul class="img">
                             <li>
-                                <img src="{{ asset($menu->image) }}">
+                                <img style="width: 600px;height: 400px" src="{{ asset($menu->image) }}">
                             </li>
                         </ul>
                     </td>
-                    <td>{{ $menu->name }}</td>
-                    <td>{{ $menu->price }}</td>
-                    <td>{{ $menu->description }}</td>
                     <td>
-                        <a href="{{ $menu->id }}" title="View Profile"
-                            class="btn btn-info btn-sm"><i aria-hidden="true"><i class="fa-solid fa-eye"></i>
+                        <h3>{{ $menu->name }}</h3>
+                        <p>{{ $menu->price }}</p>
+                        <p>{{ $menu->description }}</p>
+                    </td>
+                    <td>
+                        <a href="{{ $menu->id }}" title="View Profile" class="btn btn-info btn-sm"><i
+                                aria-hidden="true"><i class="fa-solid fa-eye"></i></i>
                         </a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    <script>
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
+
 </html>

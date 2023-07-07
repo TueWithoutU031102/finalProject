@@ -37,7 +37,7 @@
                     <td>
                         <ul class="img">
                             <li>
-                                <img src="{{ asset($menu->image) }}">
+                                <img style="width: 600px;height: 400px" src="{{ asset($menu->image) }}">
                             </li>
                         </ul>
                     </td>
