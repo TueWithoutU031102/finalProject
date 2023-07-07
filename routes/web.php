@@ -23,10 +23,14 @@ Route::group(['prefix' => 'customer'], function () {
     /////// CUSTOMER ///////
 
     Route::get('index', [CustomerController::class, 'index'])->name('books.index');
+    Route::group(['prefix' => 'booking'], function () {
+        Route::get('bookForm', [CustomerController::class, 'bookForm']);
+        Route::post('store', [CustomerController::class, 'store']);
+    });
 
-    Route::get('bookForm', [CustomerController::class, 'bookForm']);
-
-    Route::post('store', [CustomerController::class, 'store']);
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('orderForm', [CustomerController::class, 'orderForm']);
+    });
 
     // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);
 

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <form action="/customer/store" method="POST">
+    <form action="/customer/booking/store" method="POST">
         @csrf
         <br>
         @if ($errors->any())
