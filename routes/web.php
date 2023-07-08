@@ -25,13 +25,18 @@ Route::group(['prefix' => 'customer'], function () {
     Route::get('index', [CustomerController::class, 'index'])->name('books.index');
     Route::group(['prefix' => 'booking'], function () {
         Route::get('bookForm', [CustomerController::class, 'bookForm']);
+
         Route::post('store', [CustomerController::class, 'store']);
     });
 
     Route::group(['prefix' => 'order'], function () {
         Route::get('orderForm', [CustomerController::class, 'orderForm']);
+
         Route::get('detailDish/{id}', [CustomerController::class, 'detailDish']);
+
         Route::get('addToCart/{id}',[CustomerController::class,'addToCart'])->name('addToCart');
+
+        Route::get('showCart',[CustomerController::class,'showCart'])->name('showCart');
     });
 
     // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);
@@ -47,19 +52,30 @@ Route::group(['prefix' => 'manager'], function () {
     Route::get('index', [ManagerController::class, 'index'])->name('index');
     Route::group(['prefix' => 'menu'], function () {
         Route::get('indexMenu', [ManagerController::class, 'menu'])->name('indexMenu');
+
         Route::get('formMenu', [ManagerController::class, 'createFormMenu']);
+
         Route::post('createMenu', [ManagerController::class, 'createMenu']);
+
         Route::get('detailMenu/{id}', [ManagerController::class, 'detailMenu']);
+
         Route::get('editMenu/{id}', [ManagerController::class, 'editFormMenu']);
+
         Route::post('editMenu/{id}', [ManagerController::class, 'editMenu']);
+
         Route::post('deleteMenu/{menu}', [ManagerController::class, 'deleteMenu']);
     });
     Route::group(['prefix' => 'type'], function () {
         Route::get('indexType', [ManagerController::class, 'type'])->name('indexType');
+
         Route::get('formType', [ManagerController::class, 'createFormType']);
+
         Route::post('createType', [ManagerController::class, 'createType']);
+
         Route::get('editType/{id}', [ManagerController::class, 'editFormType']);
+
         Route::post('editType/{id}', [ManagerController::class, 'editType']);
+
         Route::post('deleteType/{type}', [ManagerController::class, 'deleteType']);
     });
     Route::group(['prefix' => 'booking'], function () {

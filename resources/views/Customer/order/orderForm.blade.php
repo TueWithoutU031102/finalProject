@@ -13,6 +13,9 @@
 <body>
     <h1>Menu</h1>
     <br><br>
+    <a href="{{ route('showCart') }}" class="btn btn-primary">
+        Show cart
+    </a>
     <table class="table table-hover">
         <tbody>
             @php
@@ -20,7 +23,7 @@
             @endphp
             @foreach ($types as $type)
                 <tr>
-                    <td>{{ $type->name }}</td>
+                    <td colspan="3">{{ $type->name }}</td>
                 </tr>
                 @foreach ($type->menus as $menu)
                     <tr onclick="redirectTo('{{ url('/customer/order/detailDish') }}/{{ $menu->id }}')">
@@ -37,10 +40,10 @@
                             <p>{{ $menu->description }}</p>
                         </td>
                         <td>
-                            <a href="" data-url="{{ route('addToCart', ['id' => $menu->id]) }}"
-                                title="View Profile" class="btn btn-info addToCart">Order</a>
+                            <a href="#" onclick="event.stopPropagation();"
+                                data-url="{{ route('addToCart', ['id' => $menu->id]) }}" title="View Profile"
+                                class="btn btn-info addToCart">Order</a>
                         </td>
-
                     </tr>
                 @endforeach
             @endforeach
@@ -51,21 +54,19 @@
         <button class="btn btn-primary">Back</button>
     </a>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script>
         function redirectTo(url) {
             window.location.href = url;
         }
-    </script>
-    <script>
+
         function addToCart(event) {
             event.preventDefault();
             let urlCart = $(this).data('url');
             $.ajax({
                 type: "GET",
                 url: urlCart,
-                dataType: json,
+                dataType: 'json',
                 success: function(data) {
 
                 },
@@ -75,7 +76,7 @@
             });
         }
         $(function() {
-            $('.addToCart').on('click', addToCart);
+            $('.addToCart').on("click", addToCart);
         });
     </script>
 </body>

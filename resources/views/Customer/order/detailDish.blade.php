@@ -21,14 +21,34 @@
             <p><span>Type: </span>{{ $dish->type->name }}</p>
             <p><span>Price: </span>{{ $dish->price }}</p>
             <p><span>Description: </span>{{ $dish->description }}</p>
+            <a href="#" data-url="{{ route('addToCart', ['id' => $dish->id]) }}" title="Order"
+                class="btn btn-info addToCart">Order</a>
             <a href="/customer/order/orderForm">
                 <button class="btn btn-primary">Back</button>
             </a>
-            <a href="{{ $dish->id }}" title="" class="btn btn-primary btn-sm"><i aria-hidden="true"><i
-                        class="fa-solid fa-pen"></i>
-            </a>
+
         </div>
     </div>
+    <script>
+        function addToCart(event) {
+            event.preventDefault();
+            let urlCart = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: urlCart,
+                dataType: json,
+                success: function(data) {
+
+                },
+                error: function() {
+
+                },
+            });
+        }
+        $(function() {
+            $('.addToCart').on('click', addToCart);
+        });
+    </script>
 </body>
 
 </html>

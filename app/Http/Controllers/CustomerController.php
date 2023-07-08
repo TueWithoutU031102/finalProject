@@ -45,15 +45,21 @@ class CustomerController extends Controller
     {
         $dish = Menu::find($id);
         $cart = session()->get('cart');
-        if (isset($cart[$id]))
+        if (isset($cart[$id])) {
             $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
-        else
+        } else {
             $cart[$id] = [
                 'name' => $dish->name,
                 'price' => $dish->price,
                 'quantity' => 1
             ];
-
+        }
         session()->put('cart', $cart);
+    }
+
+    public function showCart()
+    {
+        echo "<pre>";
+        print_r(session()->get('cart'));
     }
 }
