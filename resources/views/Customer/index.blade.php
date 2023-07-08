@@ -18,7 +18,7 @@
     @endif
     customer page
     <div class="button-action">
-        <a href="/customer/bookForm" class="btn btn-primary">Booking</a>
+        <a href="/customer/booking/bookForm" class="btn btn-primary">Booking</a>
     </div>
     <div class="button-action">
         <a href="" class="btn btn-primary">Payment</a>
@@ -30,7 +30,7 @@
         <a href="" class="btn btn-primary">Call staffs</a>
     </div>
     <div class="button-action">
-        <a href="" class="btn btn-primary">Order</a>
+        <a href="/customer/order/orderForm" class="btn btn-primary">Order</a>
     </div>
 </body>
 

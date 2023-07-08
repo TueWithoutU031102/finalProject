@@ -33,4 +33,11 @@ class CustomerController extends Controller
         $types = Type::all();
         return view("/Customer/order/orderForm", ['types' => $types]);
     }
+
+    public function detailDish($id)
+    {
+        $dish = Menu::find($id);
+        $typeName = Type::find(Menu::find($id)->type_id);
+        return view("/Customer/order/detailDish", ['dish' => $dish, 'typeName' => $typeName]);
+    }
 }

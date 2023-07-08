@@ -23,7 +23,7 @@
                     <td>{{ $type->name }}</td>
                 </tr>
                 @foreach ($type->menus as $menu)
-                    <tr onclick="redirectTo('{{ url('') }}')">
+                    <tr onclick="redirectTo('{{ url('/customer/order/detailDish') }}/{{ $menu->id }}')">
                         <td style="width:20%">
                             <ul class="img">
                                 <li>
@@ -37,15 +37,20 @@
                             <p>{{ $menu->description }}</p>
                         </td>
                         <td>
-                            <a href="{{ $menu->id }}" title="View Profile" class="btn btn-info btn-sm"><i
-                                    aria-hidden="true"><i class="fa-solid fa-eye"></i></i>
+                            <a href="" title="View Profile" class="btn btn-info btn-sm"><i aria-hidden="true"><i
+                                        class="fa-solid fa-eye"></i></i>
                             </a>
                         </td>
+
                     </tr>
                 @endforeach
             @endforeach
         </tbody>
     </table>
+
+    <a href="/customer/index">
+        <button class="btn btn-primary">Back</button>
+    </a>
 
     <script>
         function redirectTo(url) {
