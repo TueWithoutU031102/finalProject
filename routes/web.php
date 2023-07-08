@@ -31,6 +31,7 @@ Route::group(['prefix' => 'customer'], function () {
     Route::group(['prefix' => 'order'], function () {
         Route::get('orderForm', [CustomerController::class, 'orderForm']);
         Route::get('detailDish/{id}', [CustomerController::class, 'detailDish']);
+        Route::get('addToCart/{id}',[CustomerController::class,'addToCart'])->name('addToCart');
     });
 
     // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);

@@ -40,4 +40,20 @@ class CustomerController extends Controller
         $typeName = Type::find(Menu::find($id)->type_id);
         return view("/Customer/order/detailDish", ['dish' => $dish, 'typeName' => $typeName]);
     }
+
+    public function addToCart($id)
+    {
+        $dish = Menu::find($id);
+        $cart = session()->get('cart');
+        if (isset($cart[$id]))
+            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+        else
+            $cart[$id] = [
+                'name' => $dish->name,
+                'price' => $dish->price,
+                'quantity' => 1
+            ];
+
+        session()->put('cart', $cart);
+    }
 }

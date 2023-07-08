@@ -37,9 +37,8 @@
                             <p>{{ $menu->description }}</p>
                         </td>
                         <td>
-                            <a href="" title="View Profile" class="btn btn-info btn-sm"><i aria-hidden="true"><i
-                                        class="fa-solid fa-eye"></i></i>
-                            </a>
+                            <a href="" data-url="{{ route('addToCart', ['id' => $menu->id]) }}"
+                                title="View Profile" class="btn btn-info addToCart">Order</a>
                         </td>
 
                     </tr>
@@ -52,10 +51,32 @@
         <button class="btn btn-primary">Back</button>
     </a>
 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script>
         function redirectTo(url) {
             window.location.href = url;
         }
+    </script>
+    <script>
+        function addToCart(event) {
+            event.preventDefault();
+            let urlCart = $(this).data('url');
+            $.ajax({
+                type: "GET",
+                url: urlCart,
+                dataType: json,
+                success: function(data) {
+
+                },
+                error: function() {
+
+                },
+            });
+        }
+        $(function() {
+            $('.addToCart').on('click', addToCart);
+        });
     </script>
 </body>
 
