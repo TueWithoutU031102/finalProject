@@ -7,6 +7,7 @@ use App\Models\Book;
 use Illuminate\Support\Facades\DB;
 use App\Models\Menu;
 use App\Models\Type;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -45,21 +46,40 @@ class CustomerController extends Controller
     {
         $dish = Menu::find($id);
         $cart = session()->get('cart');
-        if (isset($cart[$id])) {
+        if (isset($cart[$id]))
             $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
-        } else {
+        else
             $cart[$id] = [
                 'name' => $dish->name,
                 'price' => $dish->price,
-                'quantity' => 1
+                'quantity' => 1,
+                'image' => $dish->image,
             ];
-        }
         session()->put('cart', $cart);
+        return response()->json([
+            'code' => 200,
+            'message' => 'success'
+        ], 200);
     }
 
     public function showCart()
     {
-        echo "<pre>";
-        print_r(session()->get('cart'));
+        $carts = session()->get('cart');
+        return view('Customer.order.viewCart', ['carts' => $carts]);
+    }
+
+    public function updateCart(Request $request)
+    {
+        if ($request->id && $request->quantity) {
+            $carts = session()->get('cart');
+            $carts[$request->id]['quantity'] = $request->quantity;
+            session()->put('cart', $carts);
+            $carts = session()->get('cart');
+            $cartComponents = view('Customer.order.components.cart_component', ['carts' => $carts])->render();
+            return response()->json([
+                'cart_component' => $cartComponents,
+                'code' => 200,
+            ], 200);
+        }
     }
 }

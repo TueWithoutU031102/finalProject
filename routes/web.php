@@ -34,9 +34,11 @@ Route::group(['prefix' => 'customer'], function () {
 
         Route::get('detailDish/{id}', [CustomerController::class, 'detailDish']);
 
-        Route::get('addToCart/{id}',[CustomerController::class,'addToCart'])->name('addToCart');
+        Route::get('addToCart/{id}', [CustomerController::class, 'addToCart'])->name('addToCart');
 
-        Route::get('showCart',[CustomerController::class,'showCart'])->name('showCart');
+        Route::get('showCart', [CustomerController::class, 'showCart'])->name('showCart');
+
+        Route::get('updateCart', [CustomerController::class, 'updateCart'])->name('updateCart');
     });
 
     // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);
