@@ -39,8 +39,29 @@
                 }
             })
         }
+
+        function cartDelete(event) {
+            event.preventDefault();
+            let urldeleteCart = $('.cart').data('url')
+            let id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                url: urldeleteCart,
+                data: {
+                    id: id,
+                },
+                success: function(data) {
+                    if (data.code === 200)
+                        $('.cart_wrapper').html(data.cart_component);
+                },
+                error: function() {
+
+                }
+            })
+        }
         $(function() {
             $(document).on('click', '.cart_update', cartUpdate);
+            $(document).on('click', '.cart_delete', cartDelete);
         })
     </script>
 </body>

@@ -82,4 +82,19 @@ class CustomerController extends Controller
             ], 200);
         }
     }
+
+    public function deleteCart(Request $request)
+    {
+        if ($request->id) {
+            $carts = session()->get('cart');
+            unset($carts[$request->id]);
+            session()->put('cart', $carts);
+            $carts = session()->get('cart');
+            $cartComponents = view('Customer.order.components.cart_component', ['carts' => $carts])->render();
+            return response()->json([
+                'cart_component' => $cartComponents,
+                'code' => 200,
+            ], 200);
+        }
+    }
 }

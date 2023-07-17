@@ -39,6 +39,8 @@ Route::group(['prefix' => 'customer'], function () {
         Route::get('showCart', [CustomerController::class, 'showCart'])->name('showCart');
 
         Route::get('updateCart', [CustomerController::class, 'updateCart'])->name('updateCart');
+
+        Route::get('deleteCart', [CustomerController::class, 'deleteCart'])->name('deleteCart');
     });
 
     // Route::get("showAcc/{id}", [Controller::class, 'showAcc']);

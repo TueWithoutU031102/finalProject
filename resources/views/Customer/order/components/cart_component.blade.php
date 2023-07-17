@@ -1,4 +1,5 @@
-<div class="cart">
+<a href="orderForm">Back</a>
+<div class="cart" data-url="{{ route('deleteCart') }}">
     <div class="container">
         <div class="row">
             <table class="table table-hover updateCartUrl" data-url="{{ route('updateCart') }}">
@@ -36,7 +37,8 @@
                             <td>
                                 <a href="" data-id="{{ $id }}"
                                     class="btn btn-primary cart_update">Update</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="" data-id="{{ $id }}"
+                                    class="btn btn-danger cart_delete">Delete</a>
                             </td>
                         </tr>
                     @endforeach
